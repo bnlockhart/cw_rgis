@@ -35,13 +35,13 @@ iris %>%
          y= Sepal.Width)
   ) +
   geom_point(color = "darkgreen")
-  
+
 
 
 # line figure -------------------------------------------------------------
 
 df_x <- tibble( x = 1:50,
-        y = 2 * x)
+                y = 2 * x)
 df_x
 
 
@@ -50,16 +50,16 @@ df_x %>%
     aes( x = x, 
          y = y)
   )  +
-   geom_line()
-  
+  geom_line()
+
 
 # Histogram ---------------------------------------------------------------
-
-iris %>%
-  ggplot()
-  aes( x = Sepal.Length)
- ) +
+iris %>% 
+  ggplot(
+    aes( x = Sepal.Length)
+  ) +
   geom_histogram()
+
 
 # box plot ----------------------------------------------------------------
 
@@ -78,7 +78,7 @@ iris %>%
          color = Species)
   ) +
   geom_boxplot()
-  
+
 #change inside box
 iris %>% 
   ggplot(
@@ -106,27 +106,26 @@ iris %>%
 # and then arrange the order(descending) of rows by "Petal . Length"
 #Assign the result to object "df_petal"
 
- df_petal <- iris %>% 
+df_petal <- iris %>% 
   select(Petal.Length, Petal.Width) %>% 
   arrange(desc(Petal.Length))
 
- df_petal 
+df_petal 
 
- #Q4 Calculate mean Sepal. Width by species; assign the results to "df-mean" 
- # - hint group_by() and summarize()
- 
- df_mean <- iris %>% 
-   group_by(Species) %>% 
-   summarize(mean = mean(Sepal.Width))
- 
- df_mean
+#Q4 Calculate mean Sepal. Width by species; assign the results to "df-mean" 
+# - hint group_by() and summarize()
 
- #Q5 Cerate a point figure of  petal.width (y-axis_ and sepal. width(x-axis)
- 
- iris %>% 
-   ggplot(
-     aes(x = Sepal.Width,
-         y = Petal.Width)
-   ) + 
-   geom_point()
-   
+df_mean <- iris %>% 
+  group_by(Species) %>% 
+  summarize(mean = mean(Sepal.Width))
+
+df_mean
+
+#Q5 Cerate a point figure of  petal.width (y-axis_ and sepal. width(x-axis)
+
+iris %>% 
+  ggplot(
+    aes(x = Sepal.Width,
+        y = Petal.Width)
+  ) + 
+  geom_point()
