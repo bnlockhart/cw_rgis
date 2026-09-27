@@ -122,9 +122,11 @@ g_scat_col<-iris %>%
 # Assign to: `g_hist`
 # Create a histogram of `Petal.Width` with `binwidth` set to 0.5.
 
+
 iris %>% 
   ggplot(aes(x = Petal.Width)) +
-  geom_histogram(bindwidth = 0.5)
+  geom_histogram(binwidth = 0.5)
+
 # Visualization in R (using `PlantGrowth` dataset)
 
 ## before you begin with the following questions, type the following code to check column names in the dataframe
