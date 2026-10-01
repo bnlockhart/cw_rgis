@@ -38,6 +38,9 @@ df_quakes <- as_tibble(quakes)
 sf_quakes<- df_quakes %>% 
   st_as_sf(coords = c("long", "lat"),
            crs = 4326)
+
+saveRDS(sf_quakes, "data/sf_quakes.rds")
+
 mapview(sf_quakes)
 
 sf_ft_quakes <- sf_quakes %>% 
