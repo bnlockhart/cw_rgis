@@ -178,15 +178,11 @@ sf_site_four %>%
 # Assign the projected raster to `spr_crop_proj`.
 # Use an appropriate re-sampling method in light of the raster data type.
 
-spr_crop_proj <- spr_crop_four %>%
-  transform(crs = 32617)
 
 # Q14. Create a map displaying the projected cropland raster (`spr_crop_proj`) 
 # with 3-km site buffers (`sf_buff_proj`) overlaid.
 
-ggplot() +
-  geom_sf(data = spr_crop_proj) +
-  geom_sf(data = sf_site_four_proj)
+
 # Q15. Calculate the proportion of cropland within each 3-km site buffer. 
 # Store the result as `df_crop_frac`, and identify the `site_id` 
 # with the highest cropland fraction.
